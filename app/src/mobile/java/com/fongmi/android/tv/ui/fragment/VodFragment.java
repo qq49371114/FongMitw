@@ -44,6 +44,7 @@ import com.fongmi.android.tv.utils.FileChooser;
 import com.github.catvod.net.OkHttp;
 import com.github.catvod.utils.Trans;
 import com.google.common.net.HttpHeaders;
+import java.security.SecureRandom;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -143,7 +144,7 @@ public class VodFragment extends BaseFragment implements SiteCallback, FilterCal
     private void updateHot() {
         App.post(mRunnable, 10 * 1000);
         if (mHots.isEmpty() || mHots.size() < 10) return;
-        mBinding.hot.setText(mHots.get(new Random().nextInt(11)));
+        mBinding.hot.setText(mHots.get(new SecureRandom().nextInt(11)));
     }
 
     private Result handle(Result result) {
